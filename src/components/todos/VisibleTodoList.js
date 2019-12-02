@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-
+//展示
 const Todo = ({ onClick, completed, text }) => (
     <li
         onClick={onClick}
@@ -40,7 +40,7 @@ TodoList.propTypes = {
     toggleTodo: PropTypes.func.isRequired
 }
 
-
+//容器
 const toggleTodo = id => ({
     type: 'TOGGLE_TODO',
     id
@@ -65,7 +65,7 @@ const getVisibleTodos = (todos, filter) => {
 }
 
 const mapStateToProps = state => ({
-    todos: getVisibleTodos(state.todos.present, state.visibilityFilter)
+    todos: getVisibleTodos(state.undoableTodos.present, state.visibilityFilter)
 })
 
 const mapDispatchToProps = dispatch => ({

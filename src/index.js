@@ -7,8 +7,6 @@ import { createStore } from 'redux';
 import Todos from "./components/todos/Todos";
 import { Provider } from 'react-redux'
 import rootReducer from './components/todos/rootReducer'
-  // ========================================
-
 
 ReactDOM.render(<App />, document.getElementById("cross"));
 
@@ -24,12 +22,10 @@ ReactDOM.render(<App />, document.getElementById("cross"));
 // render()
 // store.subscribe(render)
 
-const store = createStore(rootReducer)
+const store = createStore(rootReducer,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 ReactDOM.render(<Provider store={store}>
   <Todos />
 </Provider>, document.getElementById("todos"));
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+
 serviceWorker.unregister();
